@@ -1,0 +1,15 @@
+#!/bin/sh -e
+
+################################################################################
+boot () {
+  npm install git://pmade.com/mockapie
+
+  sed 's|./../|./../node_modules/mockapie/|' \
+      < node_modules/mockapie/bin/mockapie \
+      > bin/server.js
+
+  chmod 755 bin/server.js
+}
+
+################################################################################
+boot
