@@ -1,0 +1,12 @@
+- id: 1
+  name: The Knife
+  formation_year: 1999
+  website: http://theknife.net/
+- id: 2
+  name: Depeche Mode
+  formation_year: 1980
+  website: http://www.depechemode.com/
+- id: 3
+  name: Sneaker Pimps
+  formation_year: 1994
+  website: https://en.wikipedia.org/wiki/Sneaker_Pimps

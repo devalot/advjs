@@ -4,6 +4,7 @@
 boot () {
   npm install git://pmade.com/mockapie
   npm install jshint
+  npm install jasmine
 
   sed 's|./../|../node_modules/mockapie/|' \
       < node_modules/mockapie/bin/mockapie \
@@ -16,6 +17,12 @@ boot () {
       > bin/jshint
 
   chmod 755 bin/jshint
+
+  sed 's|../lib/|../node_modules/jasmine/lib/|' \
+      < node_modules/.bin/jasmine               \
+      > bin/jasmin
+
+  chmod 755 bin/jasmin
 }
 
 ################################################################################

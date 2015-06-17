@@ -1,0 +1,80 @@
+- id: 1
+  artist_id: 1
+  name: The Knife
+  year: 2001
+- id: 2
+  artist_id: 1
+  name: Deep Cuts
+  year: 2003
+- id: 3
+  artist_id: 1
+  name: Silent Shout
+  year: 2006
+- id: 4
+  artist_id: 1
+  name: Shaking the Habitual
+  year: 2013
+- id: 5
+  artist_id: 2
+  name: Speak & Spell
+  year: 1981
+- id: 6
+  artist_id: 2
+  name: A Broken Frame
+  year: 1982
+- id: 7
+  artist_id: 2
+  name: Construction Time Again
+  year: 1983
+- id: 8
+  artist_id: 2
+  name: Some Great Reward
+  year: 1984
+- id: 9
+  artist_id: 2
+  name: Black Celebration
+  year: 1986
+- id: 10
+  artist_id: 2
+  name: Music for the Masses
+  year: 1987
+- id: 11
+  artist_id: 2
+  name: Violator
+  year: 1990
+- id: 12
+  artist_id: 2
+  name: Songs of Faith and Devotion
+  year: 1993
+- id: 13
+  artist_id: 2
+  name: Ultra
+  year: 1997
+- id: 14
+  artist_id: 2
+  name: Exciter
+  year: 2001
+- id: 15
+  artist_id: 2
+  name: Playing the Angel
+  year: 2005
+- id: 16
+  artist_id: 2
+  name: Sounds of the Universe
+  year: 2009
+- id: 17
+  artist_id: 2
+  name: Delta Machine
+  year: 2013
+- id: 18
+  artist_id: 3
+  name: Becoming X
+  year: 1996
+- id: 19
+  artist_id: 3
+  name: Splinter
+  year: 1998
+- id: 20
+  artist_id: 3
+  name: Bloodsport
+  year: 2002
