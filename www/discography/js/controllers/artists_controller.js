@@ -1,0 +1,5 @@
+ArtistsController = (function(){
+
+
+
+})();
