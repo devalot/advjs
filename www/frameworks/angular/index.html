@@ -1,0 +1,23 @@
+<!doctype>
+<html ng-app="example">
+  <head>
+    <title>AngularJS</title>
+  </head>
+
+  <body>
+    <h1>AngularJS</h1>
+
+    <div ng-controller="ExampleController as ex">
+      <input type="text" ng-model="ex.search" placeholder="Search"/>
+
+      <ul>
+        <li ng-repeat="item in ex.items | filter:ex.search">
+          {{item.name}} ({{item.formation_year}})
+        </li>
+      </ul>
+    </div>
+
+    <script src="angular.min.js"></script>
+    <script src="example.js"></script>
+  </body>
+</html>
