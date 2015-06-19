@@ -26,4 +26,29 @@ boot () {
 }
 
 ################################################################################
-boot
+release () {
+  full=`pwd`
+  dir=`basename $full`
+
+  echo "==> bootstrapping"
+  bin/boot > /dev/null 2>&1
+
+  git describe --long --tags --dirty --always > VERSION
+  echo "==> VERSION "`cat VERSION`
+
+  ( cd ..
+    echo "==> zipping ${dir}.zip"
+    zip -q -9 --exclude $dir/.git\* --exclude $dir/bin/boot -r ${dir}.zip $dir
+  )
+}
+
+################################################################################
+case $1 in
+  release)
+    release
+    ;;
+
+  *)
+    boot
+    ;;
+esac
