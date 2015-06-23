@@ -4,6 +4,8 @@ XMLHttpRequest = function() {
   this.callback = null;
 };
 
+XMLHttpRequest.fakeResponse = null;
+
 XMLHttpRequest.prototype = {
   addEventListener: function(name, callback) {
     this.callback = callback;
@@ -21,7 +23,12 @@ XMLHttpRequest.prototype = {
 
   send: function() {
     if (this.callback) {
+      if (XMLHttpRequest.fakeResponse) {
+        this.responseText = XMLHttpRequest.fakeResponse;
+      }
+
       this.callback({});
+      XMLHttpRequest.fakeResponse = null;
     }
   },
 };

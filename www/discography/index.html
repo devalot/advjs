@@ -10,6 +10,42 @@
     <!-- This is where we're going to insert the view -->
     <div id="view"></div>
 
+    <!-- Outer artist view. -->
+    <script id="artists-outer" type="x-tmpl-mustache">
+      <table id="artists">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Formation Year</th>
+            <th>Website</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {{{artists}}}
+        </tbody>
+      </table>
+    </script>
+
+    <!-- Artist inner view -->
+    <script id="artists-inner" type="x-tmpl-mustache">
+      <tr>
+        <td><a href="#" data-artist-id="{{id}}">{{name}}</a></td>
+        <td>{{formation_year}}</td>
+        <td><a href="{{website}}">{{website}}</a></td>
+      </tr>
+    </script>
+
+    <!-- Single Artist View -->
+    <script id="single-artist" type="x-tmpl-mustache">
+      <h2>{{name}}</h2>
+
+      <ul>
+        <li>Formation Year: {{formation_year}}</li>
+        <li><a href="{{website}}">{{website}}</a></li>
+      </ul>
+    </script>
+
     <!-- Bring in our JavaScript files -->
     <script src="js/vendor/mustache.min.js"></script>
     <script src="js/lib/ajax.js"></script>
