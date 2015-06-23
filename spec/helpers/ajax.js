@@ -16,6 +16,9 @@ XMLHttpRequest.prototype = {
   open: function() {
   },
 
+  setRequestHeader: function() {
+  },
+
   send: function() {
     if (this.callback) {
       this.callback({});
