@@ -40,9 +40,23 @@ DeferredObject.prototype = {
   },
 
   promise: function() {
+    // Short way:
+    //
+    // return {
+    //   then:  this.then.bind(this),
+    //   error: this.error.bind(this),
+    // };
+
+    // Long way:
+    var deferred = this;
+
     return {
-      then:  this.then.bind(this),
-      error: this.error.bind(this),
+      then: function(cb) {
+        return deferred.then(cb);
+      },
+      error: function(cb) {
+        return deferred.error(cb);
+      }
     };
   },
 };
