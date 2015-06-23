@@ -1,0 +1,37 @@
+<!doctype>
+<html ng-app="example">
+  <head>
+    <title>AngularJS</title>
+  </head>
+
+  <!--
+
+      To use this app go to:
+      http://localhost:3000/frameworks/angular/index2.html
+
+    -->
+  <body>
+    <h1>AngularJS</h1>
+
+    <div ng-controller="ExampleController as ex">
+      <input type="text" ng-model="ex.search" placeholder="Search"/>
+
+      <ul>
+        <li ng-repeat="item in ex.items | filter:ex.search">
+          {{item.name}} ({{item.formation_year}})
+          <input type="text" ng-model="item.name" />
+          <button ng-click="ex.removeItem(item.id)">Delete</button>
+        </li>
+      </ul>
+
+      <input type="text" ng-model="ex.newName"/>
+      <button ng-click="ex.add(ex.newName)">Create</button>
+
+      <button ng-click="ex.save()">Save All</button>
+
+    </div>
+
+    <script src="angular.min.js"></script>
+    <script src="example2.js"></script>
+  </body>
+</html>
