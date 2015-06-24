@@ -13,7 +13,7 @@ View = (function() {
   var renderAll = function(template, objects) {
     return objects.map(function(e) {
       return render(template, e);
-    }).join("");
+    }).join(" ");
   };
 
   return {
@@ -21,4 +21,4 @@ View = (function() {
     render:    render,
     renderAll: renderAll,
   };
-});
+})();

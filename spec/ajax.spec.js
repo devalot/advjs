@@ -6,9 +6,18 @@ describe("Ajax interface", function() {
   });
 
   it("get method should invoke callback", function(done) {
-    Ajax.get("/api/artists", function(objects) {
-      done(); // Tell Jasmine we were called.
-      expect(objects.length).toBeGreaterThan(0);
+    XMLHttpRequest.withResponse(function(response) {
+      response.responseText = JSON.stringify([1, 2, 3]);
+
+      Ajax.get("/foo", function(array) {
+        expect(response.requestMethod).toEqual("GET");
+        expect(response.requestURL).toEqual("/foo");
+        expect(array.length).toEqual(3);
+
+        // Tell Jasmine we were called.  MUST call the `done' function
+        // *after* all expectations or the tests will silently pass :(
+        done();
+      });
     });
   });
 });

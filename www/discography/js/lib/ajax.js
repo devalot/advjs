@@ -17,7 +17,7 @@
  *
  * Parse an incoming JSON string:
  *
- *   var data = JSON.parse(req.responseText);
+ *   var data = JSON.parse(req.responseText || "null");
  *
  * Only invoke the callback if the `status' code is >= 200 and < 300.
  *
