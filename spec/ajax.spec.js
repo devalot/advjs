@@ -5,11 +5,15 @@ describe("Ajax interface", function() {
     expect(Ajax.get).toBeDefined();
   });
 
-  it("get method should invoke callback", function(done) {
+  it("get method should resolve promise", function(done) {
     XMLHttpRequest.withResponse(function(response) {
       response.responseText = JSON.stringify([1, 2, 3]);
 
-      Ajax.get("/foo", function(array) {
+      var promise = Ajax.get("/foo");
+      expect(promise).toBeDefined();
+      expect(promise.then).toBeDefined();
+
+      promise.then(function(array) {
         expect(response.requestMethod).toEqual("GET");
         expect(response.requestURL).toEqual("/foo");
         expect(array.length).toEqual(3);

@@ -2,7 +2,7 @@
 /*
  * All data coming in and going out will be converted to/from JSON.
  *
- * Callback functions are called with response data from the server,
+ * Promises should be resolved with response data from the server,
  * decoded from JSON.
  *
  * Hints:
@@ -19,27 +19,30 @@
  *
  *   var data = JSON.parse(req.responseText || "null");
  *
- * Only invoke the callback if the `status' code is >= 200 and < 300.
+ * Only resolve the promise if the (load) `status' code is >= 200 and
+ * < 300.  Otherwise reject the promise.  Also reject the promise on
+ * XHR failure (error).
  *
  */
 Ajax = (function(){
-  var raw = function(url, method, data, callback) {
+  var raw = function(url, method, data) {
+    // Return a promise.
   };
 
   // HTTP GET (Fetch resource).
-  var get = function(url, callback) {
+  var get = function(url) {
   };
 
   // HTTP POST (Create new resource).
-  var post = function(url, data, callback) {
+  var post = function(url, data) {
   };
 
   // HTTP PATCH (Update existing resource).
-  var patch = function(url, data, callback) {
+  var patch = function(url, data) {
   };
 
   // HTTP DELETE (Delete existing resource).
-  var destroy = function(url, callback) {
+  var destroy = function(url) {
   };
 
   // Public interface here:
