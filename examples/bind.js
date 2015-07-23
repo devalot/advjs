@@ -31,4 +31,4 @@ Function.prototype.myBind = function() {
 
 var f = function() {console.log(this);};
 var g = f.myBind("hello", 1);
-g(); // f.call("hello", 1);
+g(2); // f.call("hello", 1, 2);
