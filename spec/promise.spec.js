@@ -4,10 +4,12 @@ describe("Promise", function() {
 
   /****************************************************************************/
   it("should invoke success callbacks", function(done) {
+    // Promise-A
     var p = new Promise(function(resolve, reject) {
       resolve(1);
     });
 
+    // Promise-B
     p.then(function(data) {
       expect(data).toEqual(1);
       done(); // Must be the last thing called.
@@ -28,13 +30,19 @@ describe("Promise", function() {
 
   /****************************************************************************/
   it("should chain resolved promises", function(done) {
-    var p = new Promise(function(resolve, reject) {
-      resolve(1);
-    });
+    var work = function(done, fail) {
+      // Do some work.
+      done(1);
+    };
 
+    // Promise-A
+    var p = new Promise(work);
+
+    // Promise-B
     p.then(function(data) {
       expect(data).toEqual(1);
 
+      // Promise-C
       return new Promise(function(resolve, reject) {
         resolve(2);
       });
