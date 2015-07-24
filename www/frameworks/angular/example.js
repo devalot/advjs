@@ -1,5 +1,5 @@
 angular.module("example", [])
-  .controller("ExampleController", function($scope, $http) {
+  .controller("ExampleController", function($http) {
     var self = this;
     self.items = [];
 

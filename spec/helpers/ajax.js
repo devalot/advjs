@@ -61,7 +61,7 @@ XMLHttpRequest.prototype = {
 
   // Fake `setRequestHeader' function.
   setRequestHeader: function() {
-    if (this.openCalled) throw "setRequestHeader called before open!";
+    if (!this.openCalled) throw "setRequestHeader called before open!";
     this.srhCalled = true;
   },
 
