@@ -19,34 +19,96 @@
  *
  * If the executor function invokes its first argument (resolve) it
  * must provide the promised value.  This resolves the promise and
- * calls all of the success (then) callbacks with the promised value.
+ * calls all of the fulfillment (then) callbacks with the promised
+ * value.
  *
  * If the executor function invokes its second argument (reject) it
  * must provide a reject value.  This rejects the promise and calls
- * all of the failure (catch) callbacks with the reject value.
+ * all of the rejection (catch) callbacks with the reject value.
  *
  * Look at the test file for more usages examples:
  *
  *   spec/promise.spec.js
  *
+ * EXERCISE: Fill in the MISSING parts below.
+ *
  */
 Promise = function(executor) {
   // 1. Initialize state of the promise (pending, resolved, rejected).
-  // 2. Need a place to store callbacks (success and error).
-  // 3. Need a place to store the promised value.
-  // 4. Need a place to store the rejected value.
+  var fulfilled = false, rejected = false;
+
+  // 2. A place to store callbacks (success and error).
+  var fulfillmentHandlers = [], rejectionHandlers = [];
+
+  // 3. A place to store the promised value.
+  var fulfilledValue = null, rejectedValue = null;
+
+  // 4. The "resolve" function given to the executor function.  The
+  // executor function will call this function with the promised value
+  // if the asynchronous computation was successful.
+  var resolveFunc = function(value) {
+    // MISSING
+  };
+
+  // 5. The "reject" function given to the executor function.  The
+  // executor function will call this function with the error value if
+  // the asynchronous computation failed.
+  var rejectFunc = function(value) {
+    // MISSING
+  };
+
+  // 6. A function that adds a handler to the fulfillmentHandlers
+  // array.  If the promise has already been resolved then the handler
+  // should be called immediately.
+  var addFulfillmentHandler = function(handler) {
+    // MISSING
+  };
+
+  // 7. A function that adds a handler to the rejectionHandlers
+  // array.  If the promise has already been rejected then the handler
+  // should be called immediately.
+  var addRejectionHandler = function(handler) {
+    // MISSING
+  };
+
+  // 8. A slightly complicated bit of code that ensures promises are
+  // chained (composed) correctly.
+  this.addHandler = function(onFulfilled, onRejected) {
+    return new Promise(function(resolve, reject) {
+      var go = function(f) {
+        return function(value) {
+          var result = f ? f(value) : value;
+
+          if (result instanceof Promise) {
+            result.then(resolve, reject);
+          } else {
+            (f === onFulfilled ? resolve : reject)(result);
+          }
+        };
+      };
+
+      addFulfillmentHandler(go(onFulfilled));
+      addRejectionHandler(go(onRejected));
+    });
+  };
+
+  // 9. Call the executor function and give it the context necessary
+  // to resolve or reject the function.
+  executor(resolveFunc, rejectFunc);
 };
 
 Promise.prototype = {
   // Invoke callback when the promise is resolved.  Should return a
   // new promise.  Should chain promises if the callback returns a
   // promise.
-  then: function(callback) {
+  then: function(callbackF, callbackR) {
+    return this.addHandler(callbackF, callbackR);
   },
 
   // Invoke the callback when the promise is rejected.  Should return
   // a new promise.  Should chain promises if the callback returns a
   // promise.
   catch: function(callback) {
+    return this.addHandler(undefined, callback);
   },
 };

@@ -29,6 +29,21 @@ describe("Promise", function() {
   });
 
   /****************************************************************************/
+  it("should do simple chaining", function(done) {
+    var p = new Promise(function(resolve, reject) {
+      resolve(1);
+    });
+
+    p.then(function(val) {
+      expect(val).toEqual(1);
+      return 2;
+    }).then(function(val) {
+      expect(val).toEqual(2);
+      done(); // Must be the last thing called.
+    });
+  });
+
+  /****************************************************************************/
   it("should chain resolved promises", function(done) {
     var work = function(done, fail) {
       // Do some work.
