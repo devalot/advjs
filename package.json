@@ -1,0 +1,25 @@
+{
+  "name": "advjs",
+  "version": "1.0.0",
+  "description": "Advanced JavaScript Exercises and Demos",
+  "main": "bin/server.js",
+  "directories": {
+    "example": "examples",
+    "bin": "bin",
+    "www": "www"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Peter J. Jones",
+  "license": "BSD2",
+  "dependencies": {
+    "jasmine": "^2.3.2",
+    "jshint": "^2.8.0",
+    "mockapie": "git://pmade.com/mockapie"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devalot/corejs.git"
+  }
+}

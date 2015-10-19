@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+
+require("../node_modules/jshint/src/cli.js").interpret(process.argv);

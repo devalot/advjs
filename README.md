@@ -14,7 +14,7 @@ If you cloned this repository from GitHub you'll need to bootstrap it.
 From the command line, and within this directory, by running the
 following command:
 
-    bin/boot
+    npm install
 
 ## Starting Things Up
 
