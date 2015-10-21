@@ -47,28 +47,51 @@ Promise = function(executor) {
   // executor function will call this function with the promised value
   // if the asynchronous computation was successful.
   var resolveFunc = function(value) {
-    // MISSING
+    if (fulfilled || rejected) return;
+
+    fulfilled = true;
+    fulfilledValue = value;
+
+    fulfillmentHandlers.forEach(function(callback) {
+      // callback(value) --or--
+      setTimeout(callback.bind(undefined, value), 0);
+    });
   };
 
   // 5. The "reject" function given to the executor function.  The
   // executor function will call this function with the error value if
   // the asynchronous computation failed.
   var rejectFunc = function(value) {
-    // MISSING
+    if (fulfilled || rejected) return;
+
+    rejected = true;
+    rejectedValue = value;
+
+    rejectionHandlers.forEach(function(callback) {
+      setTimeout(callback.bind(undefined, value), 0);
+    });
   };
 
   // 6. A function that adds a handler to the fulfillmentHandlers
   // array.  If the promise has already been resolved then the handler
   // should be called immediately.
   var addFulfillmentHandler = function(handler) {
-    // MISSING
+    if (fulfilled) {
+      setTimeout(handler.bind(undefined, fulfilledValue), 0);
+    } else {
+      fulfillmentHandlers.push(handler);
+    }
   };
 
   // 7. A function that adds a handler to the rejectionHandlers
   // array.  If the promise has already been rejected then the handler
   // should be called immediately.
   var addRejectionHandler = function(handler) {
-    // MISSING
+    if (rejected) {
+      setTimeout(handler.bind(undefined, rejectedValue), 0);
+    } else {
+      rejectionHandlers.push(handler);
+    }
   };
 
   // 8. A slightly complicated bit of code that ensures promises are

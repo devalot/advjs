@@ -15,4 +15,19 @@
    */
 
 
+  var form  = document.querySelectorAll("form")[0];
+  var input = document.getElementById("new-text");
+  var h1    = document.querySelectorAll("h1")[0];
+
+  form.addEventListener("submit", function(event) {
+    var text = input.value;
+
+    if (text.length !== 0) {
+      h1.textContent = text;
+      input.value = "";
+    }
+
+    event.preventDefault();
+  });
+
 })();
