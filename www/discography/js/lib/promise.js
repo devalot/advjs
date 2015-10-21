@@ -78,6 +78,7 @@ Promise = function(executor) {
       var go = function(f) {
         return function(value) {
           var result = f ? f(value) : value;
+          if (result === undefined) result = value;
 
           if (result instanceof Promise) {
             result.then(resolve, reject);
