@@ -1,7 +1,17 @@
 ArtistsController = (function(){
 
+  var setView = function(id, object) {
+    var view = document.getElementById("view");
+    var tmpl = View.get(id);
+    view.innerHTML = View.render(tmpl, object);
+  };
+
   // Display all artists.
   var index = function() {
+    Artist.fetchAll(function(artists) {
+      var templateObject = {artists: artists};
+      setView("artists-view", templateObject);
+    });
   };
 
   // Display a single artist.
