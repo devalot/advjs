@@ -5,9 +5,10 @@ Artist = (function(){
   };
 
   Artist.prototype = {
-    // Create a new record if the `id' property is `null', or update
-    // an existing record.  Invoke the callback after the server has
-    // confirmed the save.  Callback should be optional.
+    // Create a new record if the `id' property is `undefined',
+    // otherwise update an existing record.  Invoke the callback after
+    // the server has confirmed the save.  Callback should be
+    // optional.
     save: function(callback) {
     },
 
