@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebSockets</title>
+    <link href="index.css" rel="stylesheet" type="text/css"/>
+  </head>
+
+  <body>
+    <h1>WebSockets: Server Log</h1>
+    <ul id="log"></ul>
+
+    <p>
+      The server will push log messages to this browser when a
+      resource is requested from the server.  To see this, open
+      another <a href="/" target="_other">browser window</a>.
+    </p>
+
+    <script src="../../frameworks/jquery/jquery.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
