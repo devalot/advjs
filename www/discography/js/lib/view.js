@@ -1,6 +1,7 @@
 View = (function() {
 
-  // Get a template based on its ID.
+  // Fetch a template based on its ID from the HTML page.  Return the
+  // text content of the template without rendering it.
   var get = function(templateID) {
   };
 
@@ -9,16 +10,16 @@ View = (function() {
   var render = function(template, object) {
   };
 
-  // Render an array of objects using the given a template.
-  var renderAll = function(template, objects) {
-    return objects.map(function(e) {
-      return render(template, e);
-    }).join(" ");
+  // Given a template ID and an object, fetch the template, render it,
+  // and insert its text into the HTML page.  Place the rendered
+  // template text into the `<div id="view"></div>' section of
+  // index.html.
+  var set = function(templateID, object) {
   };
 
   return {
-    get:       get,
-    render:    render,
-    renderAll: renderAll,
+    get:    get,
+    render: render,
+    set:    set,
   };
 })();

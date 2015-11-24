@@ -1,4 +1,6 @@
 require("../www/discography/js/models/artist.js");
+require("../www/discography/js/lib/ajax.js");
+require("../www/discography/js/lib/promise.js");
 
 describe("Artist model interface", function() {
   it("fetchOne should provide one artist", function(done) {

@@ -1,29 +1,30 @@
 Artist = (function(){
 
-  // Should copy appropriate properties from `record' to `this'.
+  // Artist constructor.  Given an object describing an artist, copy
+  // all of its local properties into `this'.
   var Artist = function(record) {
   };
 
   Artist.prototype = {
     // Create a new record if the `id' property is `undefined',
-    // otherwise update an existing record.  Invoke the callback after
-    // the server has confirmed the save.  Callback should be
-    // optional.
-    save: function(callback) {
+    // otherwise update an existing record.  Return a promise from the
+    // Ajax library.
+    save: function() {
     },
 
     // Optional: Write a `destroy' method that deletes the artist.
-    destroy: function(callback) {
+    // Return a promise.
+    destroy: function() {
     },
   };
 
-  // Should fetch a single artist via Ajax and then call the callback
-  // with a single `Artist' instance.
-  var fetchOne = function(id, callback) {
+  // Should fetch a single artist via Ajax.  Return a promise that
+  // resolves to an instance of the Artist function.
+  var fetchOne = function(id) {
   };
 
-  // Should fetch all artists via Ajax and then call the callback with
-  // an array of 'Artist' instances.
+  // Should fetch all artists via Ajax.  Return a promise that
+  // resolves to an array of Artist objects.
   var fetchAll = function(callback) {
   };
 
