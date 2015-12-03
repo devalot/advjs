@@ -55,4 +55,60 @@
  *
  * Make sure your tests still pass.
  */
-Hosts = undefined;
+Hosts = (function() {
+  var cache = {};
+
+  var add = function(name, addresses) {
+    if (!cache.hasOwnProperty(name) ||
+        cache[name] === undefined)
+    {
+      cache[name] = [];
+    }
+
+    cache[name].push(addresses);
+  };
+
+  var lookupByName = function(name) {
+    return cache[name] || [];
+  };
+
+  var lookupByIP = function(ip) {
+    var names = [];
+
+    for (var p in cache) {
+      if (!cache.hasOwnProperty(p)) continue;
+      var i = cache[p].indexOf(ip);
+      if (i >= 0) names.push(p);
+    }
+
+    return names;
+  };
+
+  var clear = function() {
+    for (var p in cache) {
+      if (cache.hasOwnProperty(p)) delete cache[p];
+    }
+  };
+
+  var api = {
+    add:          add,
+    lookupByName: lookupByName,
+    lookupByIP:   lookupByIP,
+    clear:        clear,
+  };
+
+  Object.defineProperty(api, "length", {
+    enumerable: true,
+
+    get: function() {
+      var slots = Object.keys(cache);
+
+      return slots.reduce(function(acc, slot) {
+        return acc + cache[slot].length;
+      }, slots.length);
+    },
+  });
+
+  // Expose our public API:
+  return api;
+})();

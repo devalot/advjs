@@ -14,5 +14,25 @@
    *
    */
 
+  // Add a `isBlank' method to all strings.
+  //
+  // Probably a bad idea to patch built-in objects.
+  String.prototype.isBlank = function() {
+    return this.length === 0 ||
+      this.match(/^\s*$/);
+  };
+
+  var h1    = document.querySelector("h1"),
+      form  = document.querySelector("form"),
+      input = document.getElementById("new-text");
+
+  form.addEventListener("submit", function(e) {
+    if (!input.value.isBlank()) {
+      h1.textContent = input.value;
+      input.value = "";
+    }
+
+    e.preventDefault();
+  });
 
 })();
