@@ -72,10 +72,10 @@ Model.create = function() {
 // Using a base prefix string, variable mappings, and dependency
 // records, create a prefix string with all variables rendered.
 Model.makePrefix = function(base, mappings, records) {
-  if (mappings && records) {
+  if (mappings && records && records.length >= mappings.length) {
     var vars = {};
 
-    for (var i; i<mappings.length; ++i) {
+    for (var i=0; i<mappings.length; ++i) {
       for (var p in mappings[i]) {
         vars[mappings[i][p]] = records[i][p];
       }
