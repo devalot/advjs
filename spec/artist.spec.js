@@ -39,16 +39,13 @@ describe("Artist model interface", function() {
   describe("saving an artist", function() {
     it("should create a new record if id is undefined", function(done) {
       XMLHttpRequest.withResponse(function(response) {
-        response.responseText =
-          JSON.stringify({id: 10, name: "Happy Kids"});
-
+        response.responseText = JSON.stringify({id: 10});
         var artist = Artist.create({name: "The Foobars"});
 
         artist.save().then(function() {
           expect(response.requestMethod).toBe("POST");
           expect(response.requestURL).toBe("/api/artists");
           expect(artist.id).toBe(10);
-          expect(artist.name).toBe("Happy Kids");
           done();
         });
       });
@@ -56,9 +53,6 @@ describe("Artist model interface", function() {
 
     it("should update an existing record if id is defined", function(done) {
       XMLHttpRequest.withResponse(function(response) {
-        response.responseText =
-          JSON.stringify({id: 10, name: "The Knife"});
-
         var artist = Artist.create({id: 10, name: "The Knife"});
 
         artist.save().then(function() {
