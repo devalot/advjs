@@ -25,6 +25,7 @@ Artist = (function(){
 
   // Should fetch all artists via Ajax.  Return a promise that
   // resolves to an array of Artist objects.
+  var fetchAll = function() {
   };
 
   // Public interface:
