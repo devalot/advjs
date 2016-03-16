@@ -14,5 +14,17 @@
    *
    */
 
+  var form  = document.querySelector("form");
+  var input = document.getElementById("new-text");
+  var h1    = document.querySelector("h1");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    if (input.value.match(/^\s*$/)) return;
+
+    h1.textContent = input.value;
+    input.value = "";
+  });
 
 })();
