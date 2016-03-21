@@ -12,9 +12,9 @@ console.log(result); // 10
 
 /******************************************************************************/
 // <<: In arguments.
-function sum2(...values) {
-  return values.reduce((a, e) => a + e, 0);
+function sum2(x, ...values) {
+  return x + values[0];
 }
 
-console.log(sum2(1, 2, 3, 4)); // 10
+console.log(sum2(1, 2, 3, 4)); // 3
 // :>>
