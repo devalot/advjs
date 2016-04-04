@@ -1,4 +1,4 @@
-require("../src/hosts.js");
+require("../www/hosts/hosts.js");
 
 describe("Hosts", function() {
   var hosts = null;
