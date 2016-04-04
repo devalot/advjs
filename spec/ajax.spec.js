@@ -22,6 +22,9 @@ describe("Ajax interface", function() {
         // Tell Jasmine we were called.  MUST call the `done' function
         // *after* all expectations or the tests will silently pass :(
         done();
+      }).catch(function() {
+        expect("promise to be resolved").toEqual("rejected");
+        done();
       });
     });
   });

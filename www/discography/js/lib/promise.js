@@ -30,8 +30,6 @@
  *
  *   spec/promise.spec.js
  *
- * EXERCISE: Fill in the MISSING parts below.
- *
  */
 Promise = function(executor) {
   // 1. Initialize state of the promise (pending, resolved, rejected).
