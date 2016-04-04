@@ -55,4 +55,34 @@
  *
  * Make sure your tests still pass.
  */
-Hosts = undefined;
+Hosts = (function() {
+  var table = {};
+
+  var api = {
+    add: function(name, address) {
+      if (!table.hasOwnProperty(name)) table[name] = [];
+      table[name].push(address);
+    },
+
+    lookupByName: function(name) {
+      return table[name] || [];
+    },
+
+    lookupByIP: function(address) {
+      var matches = [];
+
+      for (var host in table) {
+        var index = table[host].indexOf(address);
+        if (index >= 0) matches.push(host);
+      }
+
+      return matches;
+    },
+
+    clear: function() {
+      table = {};
+    },
+  };
+
+  return api;
+})();

@@ -30,4 +30,22 @@
    */
 
 
+
+  var h1    = document.querySelector("h1");
+  var form  = document.querySelector("form");
+  var input = document.getElementById("new-text");
+  var history = document.getElementById("history");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    if (input.value.match(/^\s*$/)) return;
+
+    var li = document.createElement("li");
+    li.textContent = h1.textContent;
+    history.insertBefore(li, history.firstChild);
+
+    h1.textContent = input.value;
+    input.value = "";
+  });
 })();
