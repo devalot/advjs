@@ -8,7 +8,9 @@ Artist = (function(){
   Artist.prototype = {
     // Create a new record if the `id' property is `undefined',
     // otherwise update an existing record.  Return a promise from the
-    // Ajax library.
+    // Ajax library.  Don't forget to update the `this' object with
+    // properties returned by the server (i.e. the new ID when
+    // creating a record).
     save: function() {
     },
 
