@@ -55,4 +55,48 @@
  *
  * Make sure your tests still pass.
  */
-Hosts = undefined;
+Hosts = (function() {
+  // Use an object as a lookup table.  The property names will be the
+  // host names and the property values will be arrays of IP addrs.
+  //
+  // In ES6 you would probably want to use a Map instead.
+  var table = {};
+
+  var api = {
+    add: function(name, address) {
+      if (!table.hasOwnProperty(name)) table[name] = [];
+      table[name].push(address);
+    },
+
+    lookupByName: function(name) {
+      return table[name] || [];
+    },
+
+    lookupByIP: function(address) {
+      var hosts = [];
+
+      for (var name in table) {
+        var index = table[name].indexOf(address);
+        if (index >= 0) hosts.push(name);
+      }
+
+      return hosts;
+    },
+
+    clear: function() {
+      table = {};
+    },
+  };
+
+  Object.defineProperty(api, "length", {
+    enumerable: true,
+
+    get: function() {
+      return Object.keys(table).reduce(function(sum, name) {
+        return sum + table[name].length + 1;
+      }, 0);
+    },
+  });
+
+  return api;
+})();
