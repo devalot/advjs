@@ -5,7 +5,7 @@ View = (function() {
   var get = function(templateID) {
   };
 
-  // Render a single object using the given a template.
+  // Render a single object using the given template.
   // Mustache API Docs: https://github.com/janl/mustache.js
   var render = function(template, object) {
   };
