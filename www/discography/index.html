@@ -10,6 +10,39 @@
     <!-- This is where we're going to insert the view -->
     <div id="view"></div>
 
+    <!-- Template to list all artists -->
+    <script id="all-artists" type="x-tmpl-mustache">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Formation Year</th>
+            <th>Website</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {{#artists}}
+          <tr data-artist-id="{{id}}">
+            <td><a class="artist-show" href="#">{{name}}</a></td>
+            <td>{{formation_year}}</td>
+            <td>{{website}}</td>
+          </tr>
+          {{/artists}}
+        </tbody>
+      </table>
+    </script>
+
+    <!-- Template for a single artist -->
+    <script id="show-artist" type="x-tmpl-mustache">
+      <h2>{{name}} ({{formation_year}})</h2>
+
+      <p>Website: <a href="{{website}}">{{website}}</a></p>
+
+      <h3>Albums</h3>
+      <p>Coming Soon!</p>
+    </script>
+
     <!-- Bring in our JavaScript files -->
     <script src="js/vendor/mustache.min.js"></script>
     <script src="js/lib/promise.js"></script>
