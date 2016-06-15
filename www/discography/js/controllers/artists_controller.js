@@ -27,7 +27,11 @@ ArtistsController = (function(){
   var show = function(id) {
     Artist.fetchOne(id).
       then(function(artist) {
-        View.set("show-artist", artist);
+        Album.fetchAll(artist).
+          then(function(albums) {
+            artist.albums = albums;
+            View.set("show-artist", artist);
+          });
       });
   };
 

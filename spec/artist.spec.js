@@ -1,3 +1,4 @@
+require("../www/discography/js/lib/model.js");
 require("../www/discography/js/models/artist.js");
 require("../www/discography/js/lib/ajax.js");
 require("../www/discography/js/lib/promise.js");
@@ -40,7 +41,7 @@ describe("Artist model interface", function() {
       var serverVersion = {name: "Taylor Swift", id: 42};
       response.responseText = JSON.stringify(serverVersion);
 
-      var newArtist = Artist.create({name: serverVersion.name});
+      var newArtist = new Artist({name: serverVersion.name});
 
       newArtist.save().then(function() {
         expect(response.requestMethod).toBe("POST");

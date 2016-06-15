@@ -40,7 +40,24 @@
       <p>Website: <a href="{{website}}">{{website}}</a></p>
 
       <h3>Albums</h3>
-      <p>Coming Soon!</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Released On</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {{#albums}}
+          <tr>
+            <td>{{name}}</td>
+            <td>{{released}}</td>
+          </tr>
+          {{/albums}}
+        </tbody>
+      </table>
     </script>
 
     <!-- Bring in our JavaScript files -->
