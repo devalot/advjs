@@ -18,4 +18,13 @@
     console.log(u.id);
   });
 
+  function test () {
+    var a = [1, 2, 3];
+
+    a.map(e => {
+      console.log(arguments, this);
+      return e + 1;
+    });
+  }
+
 })();
