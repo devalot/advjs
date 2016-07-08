@@ -1,4 +1,1 @@
-Controller = (function(){
-
-
-})();
+Controller = undefined;

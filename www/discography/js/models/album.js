@@ -1,5 +1,1 @@
-Album = (function(){
-
-
-
-})();
+Album = undefined;

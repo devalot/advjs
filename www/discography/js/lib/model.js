@@ -1,5 +1,1 @@
-Model = (function(){
-
-
-
-})();
+Model = undefined;
