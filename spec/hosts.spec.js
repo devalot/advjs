@@ -65,10 +65,16 @@ describe("Hosts", function() {
   // Bonus Question:
   if ("length" in Hosts) {
     it("length should return correct number of entries", function() {
-      expect(Hosts.length).toBe(7);
+      // Should be 3 from the `beforeEach' call.
+      expect(Hosts.length).toBe(3);
 
+      // Should not change.
       Hosts.add("localhost", "0.0.0.0");
-      expect(Hosts.length).toBe(8);
+      expect(Hosts.length).toBe(3);
+
+      // Now it should change.
+      Hosts.add("nixos.org", "1.1.1.1");
+      expect(Hosts.length).toBe(4);
     });
   }
 });

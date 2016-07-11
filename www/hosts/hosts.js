@@ -45,13 +45,9 @@
  *
  * Using the `Object.defineProperty' function, add a new property to
  * the API called `length'.  The `length' property should be dynamic
- * and should equal the total number of entries stored in the `Hosts'
- * object.  This property SHOULD NOT be a function, and it must be
- * enumerable.  (Hint: look at the `get' property descriptor.)
- *
- * For example, if the `Hosts' object has three (3) host names and
- * five (5) IP addresses then the `length' property should be eight
- * (8).
+ * and should equal the total number of host names stored in the
+ * `Hosts' object.  This property SHOULD NOT be a function, and it
+ * must be enumerable.  (Hint: look at the `get' property descriptor.)
  *
  * Make sure your tests still pass.
  */
