@@ -29,5 +29,32 @@
    * text content of the clicked <li> element.
    */
 
+  var h1      = document.querySelector("h1");
+  var form    = document.querySelector("form");
+  var input   = document.getElementById("new-text");
+  var history = document.getElementById("history");
 
+  form.addEventListener("submit", function(e) {
+    e.preventDefault(); // Don't go to google.com
+
+    // Can you make this better?
+    if (input.value.length === 0) return;
+
+    // Add current value to history.
+    var li = document.createElement("li");
+    li.textContent = h1.textContent;
+    history.insertBefore(li, history.firstChild);
+
+    // Update current value from form.
+    h1.textContent = input.value;
+    input.value = "";
+  });
+
+  // Restore items from the history section.
+  history.addEventListener("click", function(e) {
+    if (e.target.tagName !== "LI") return;
+    var text = e.target.textContent;
+    e.target.textContent = h1.textContent;
+    h1.textContent = text;
+  });
 })();
