@@ -23,4 +23,35 @@ describe("Artist model interface", function() {
       });
     });
   });
+
+  it("fetchAll should return an array of artists", function(done) {
+    XMLHttpRequest.withResponse(function(response) {
+      var records = [{name: "Prince"}, {name: "M83"}];
+      response.responseText = JSON.stringify(records);
+
+      Artist.fetchAll().then(function(artists) {
+        expect(artists.length).toBe(2);
+        expect(artists[0] instanceof Artist).toBeTruthy();
+        expect(artists[0].name).toBe("Prince");
+        done();
+      });
+    });
+  });
+
+  it("saving a record should get an ID", function(done) {
+    XMLHttpRequest.withResponse(function(response) {
+      var record = {name: "Junior Boys", id: 42};
+      response.responseText = JSON.stringify(record);
+
+      var artist = new Artist({name: record.name});
+      expect(artist.id).toBeUndefined();
+
+      artist.save().then(function() {
+        expect(response.requestMethod).toBe("POST");
+        expect(artist.id).toBe(record.id);
+        expect(artist.name).toBe(record.name);
+        done();
+      });
+    });
+  });
 });
