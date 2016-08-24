@@ -10,10 +10,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "trans": "babel --presets es2015 -d babel/es5 babel/es6 "
+    "babel": "babel --presets es2015 -d babel/es5 babel/es6 "
   },
   "author": "Peter J. Jones",
-  "license": "BSD2",
+  "license": "BSD-2-Clause",
   "dependencies": {
     "jasmine": "^2.3.2",
     "jshint": "^2.8.0",
