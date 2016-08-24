@@ -11,16 +11,19 @@ require("../www/discography/js/lib/promise.js");
 
 describe("Artist model interface", function() {
   it("fetchOne should provide one artist", function(done) {
-    XMLHttpRequest.withResponse(function(response) {
-      var record = {name: "The Wombats"};
-      response.responseText = JSON.stringify(record);
+    // Some test data:
+    var artist = {name: "The Wombats"};
 
-      Artist.fetchOne(1).then(function(artist) {
-        expect(artist instanceof Artist).toBeTruthy();
-        expect(artist.name).toBe(record.name);
-        expect(artist.save).toBeDefined();
-        done(); // Make sure to call `done' last.
-      });
+    // Pretend the server responded with the above object:
+    ajaxSpy('get', artist);
+
+    // Call into the Artist model:
+    Artist.fetchOne(1).then(function(record) {
+      expect(record.name).toEqual(artist.name);
+      expect(record.save).toBeDefined();
+      done(); // Make sure to call `done' last.
+    }).catch(function() {
+      done.fail("shouldn't have failed");
     });
   });
 });
