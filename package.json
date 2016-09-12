@@ -17,17 +17,20 @@
   "dependencies": {
     "babel-cli": "^6.6.5",
     "babel-preset-es2015": "^6.6.0",
-    "bower": "^1.7.9",
-    "flow-bin": "^0.32.0",
     "jasmine": "^2.3.2",
     "jshint": "^2.8.0",
-    "mockapie": "git://pmade.com/mockapie",
-    "typescript": "^1.8.10"
+    "mockapie": "git://pmade.com/mockapie"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/devalot/advjs.git"
   },
   "devDependencies": {
+    "babel-plugin-transform-flow-strip-types": "^6.14.0",
+    "flow-bin": "^0.32.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-cli": "^1.2.2",
+    "gulp-flowcheck": "^0.3.1"
   }
 }
