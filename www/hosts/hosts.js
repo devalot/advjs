@@ -51,4 +51,39 @@
  *
  * Make sure your tests still pass.
  */
-Hosts = undefined;
+// npm install jasmine-core
+// node bin/jasmine spec/hosts.spec.js
+Hosts = (function() {
+  var table = {};
+
+  var api = {
+    add: function(name, address) {
+      if (!table.hasOwnProperty(name)) {
+        table[name] = [];
+      }
+      table[name].push(address);
+    },
+    lookupByName: function(name) {
+      if (table.hasOwnProperty(name)) {
+        return table[name];
+      } else {
+        return [];
+      }
+    },
+    lookupByIP: function(address) {
+      var matches = [];
+
+      for (var host in table) {
+        var index = table[host].indexOf(address);
+        if (index >= 0) matches.push(host);
+      }
+
+      return matches;
+    },
+    clear: function() {
+      table = {};
+    },
+  };
+
+  return api;
+})(); // Don't forget to Execute your IIFE!
