@@ -13,9 +13,9 @@
   // Filter out minors.
   console.log(users.filter(u => u.age > 18));
 
-  // Using forEach:
-  users.forEach(u => {
-    console.log(u.id);
+  // Using forEach (and more than one argument):
+  users.forEach((u, i) => {
+    console.log(u.id, i);
   });
 
   function test () {
