@@ -4,13 +4,13 @@ require("../../www/discography/js/lib/ajax.js");
 
 /******************************************************************************/
 // Spy on the Ajax library, stubbing out one of its methods.
-ajaxSpy = function(method, result) {
+ajaxSpy = function(method, result, error) {
   spyOn(Ajax, method).and.callFake(function() {
     return new Promise(function(resolve, reject) {
-      if (result && typeof result === "object") {
+      if (error === undefined) {
         resolve(result);
       } else {
-        reject(result);
+        reject(error);
       }
     });
   });
