@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test": "jasmine",
-    "babel": "babel --presets es2015 -d babel/es5 babel/es6 "
+    "babel": "node node_modules/babel-cli/bin/babel.js --presets es2015 -d babel/es5 babel/es6 "
   },
   "author": "Peter J. Jones",
   "license": "BSD-2-Clause",
