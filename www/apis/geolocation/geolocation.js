@@ -1,11 +1,11 @@
 Geolocation = (function() {
 
   var get = function(element) {
-    var disabled = function() {element.innerHTML = "DISABLED.";};
-    var error    = function() {element.innerHTML = "ERROR!";   };
+    var missing = function() {element.innerHTML = "MISSING.";};
+    var error   = function() {element.innerHTML = "ERROR!";   };
 
     if (!("geolocation" in navigator)) {
-      return disabled();
+      return missing();
     }
 
     navigator.geolocation.getCurrentPosition(function(pos) {
