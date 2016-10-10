@@ -51,4 +51,43 @@
  *
  * Make sure your tests still pass.
  */
-Hosts = undefined;
+Hosts = (function() {
+  // Treat an object as a lookup table. (In ES6 you should use the new
+  // Map type instead of abusing an object.)
+  var table = {};
+
+  var api = {
+    add: function(name, address) {
+      if (!table.hasOwnProperty(name)) table[name] = [];
+      table[name].push(address);
+    },
+
+    lookupByName: function(name) {
+      if (table.hasOwnProperty(name)) return table[name];
+      return [];
+    },
+
+    lookupByIP: function(address) {
+      var matches = [];
+
+      for (var name in table) {
+        if (!table.hasOwnProperty(name)) continue;
+        var index = table[name].indexOf(address);
+        if (index >= 0) matches.push(name);
+      }
+
+      return matches;
+    },
+
+    clear: function() {
+      table = {};
+    },
+  };
+
+  Object.defineProperty(api, "length", {
+    enumerable: true,
+    get: function() {return Object.keys(table).length;},
+  });
+
+  return api;
+})();

@@ -29,5 +29,33 @@
    * text content of the clicked <li> element.
    */
 
+  var Header = function(document) {
+    this.document = document;
+    this.element  = document.querySelector("body > h1");
+    this.history  = document.getElementById("history");
+  };
 
+  Header.prototype.update = function(text) {
+    this.push(this.element.textContent);
+    this.element.textContent = text;
+  };
+
+  Header.prototype.push = function(text) {
+    var li = this.document.createElement("li");
+    li.textContent = text;
+    this.history.appendChild(li);
+  };
+
+  var header = new Header(document);
+  var form = document.querySelector("form");
+  var input = document.getElementById("new-text");
+
+  form.addEventListener("submit", function(e) {
+    if (input.value) {
+      header.update(input.value);
+      input.value = "";
+    }
+
+    e.preventDefault();
+  });
 })();
