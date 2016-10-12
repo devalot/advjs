@@ -1,12 +1,12 @@
 angular.module("example", [])
   .controller("ExampleController", function($http) {
     var self = this;
-    self.items = [];
+    self.artists = [];
 
     $http.get("/api/artists").
       success(function(data) {
         data.forEach(function(e) {
-          self.items.push(e);
+          self.artists.push(e);
         });
       }).
       error(function() {

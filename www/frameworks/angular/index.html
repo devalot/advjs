@@ -11,8 +11,8 @@
       <input type="text" ng-model="ex.search" placeholder="Search"/>
 
       <ul>
-        <li ng-repeat="item in ex.items | filter:ex.search">
-          {{item.name}} ({{item.formation_year}})
+        <li ng-repeat="artist in ex.artists | filter:ex.search">
+          {{artist.name}} ({{artist.formation_year}})
         </li>
       </ul>
     </div>
