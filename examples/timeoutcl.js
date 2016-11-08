@@ -1,9 +1,11 @@
 // <<: timeout
-for (var i=0; i<5; ++i) {
-  setTimeout(function() {
+// What will this output?
+for (var i=0; i<3; i++) {
+  setTimeout(function(){
     console.log(i);
-  }, i*1000);
+  }, 1000*i);
 }
+console.log("Howdy!");
 // :>>
 
 // <<: new-scope
