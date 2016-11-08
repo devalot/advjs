@@ -51,4 +51,55 @@
  *
  * Make sure your tests still pass.
  */
-Hosts = undefined;
+Hosts = (function() {
+  // Abuse an object and treat it like a lookup table.
+  var table = {};
+
+  var api = {
+    add: function(name, address) {
+      if (!table.hasOwnProperty(name)) {
+        table[name] = [];
+      }
+
+      table[name].push(address);
+    },
+
+    lookupByName: function(name) {
+      if (table.hasOwnProperty(name)) {
+        return table[name];
+      } else {
+        return [];
+      }
+    },
+
+    lookupByIP: function(address) {
+      var matches = [];
+
+      for (var name in table) {
+        if (table.hasOwnProperty(name) &&
+            table[name].indexOf(address) >= 0)
+        {
+          matches.push(name);
+        }
+      }
+
+      return matches;
+    },
+
+    clear: function() {
+      table = {};
+    },
+  };
+
+  Object.defineProperty(api, "length", {
+    // Allow it to be seen with the `in' operator.
+    enumerable: true,
+
+    // Create a getter function for the `length' property.
+    get: function() {
+      return Object.keys(table).length;
+    },
+  });
+
+  return api;
+})();

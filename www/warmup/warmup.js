@@ -29,5 +29,44 @@
    * text content of the clicked <li> element.
    */
 
+  var HeaderHistory = function(document, header) {
+    this.document = document;
+    this.element = header;
+    this.history = document.getElementById("history");
+    var self = this;
 
+    this.history.addEventListener("click", function(event) {
+      self.pop(event.target);
+    });
+  };
+
+  HeaderHistory.prototype.set = function(text) {
+    this.push(this.element.textContent);
+    this.element.textContent = text;
+  };
+
+  HeaderHistory.prototype.push = function(text) {
+    var li = this.document.createElement("li");
+    li.textContent = text;
+    this.history.appendChild(li);
+  };
+
+  HeaderHistory.prototype.pop = function(node) {
+    this.set(node.textContent);
+    this.history.removeChild(node);
+  };
+
+  var header = document.querySelector("h1");
+  var form   = document.querySelector("form");
+  var input  = document.getElementById("new-text");
+  var history = new HeaderHistory(document, header);
+
+  form.addEventListener("submit", function(event) {
+    if (input.value.trim().length) {
+      history.set(input.value.trim());
+      input.value = "";
+    }
+
+    event.preventDefault();
+  });
 })();
