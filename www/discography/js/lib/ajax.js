@@ -26,23 +26,46 @@
  */
 Ajax = (function(){
   var raw = function(url, method, data) {
-    // Return a promise.
+    return new Promise(function(resolve, reject) {
+      var request = new XMLHttpRequest();
+
+      request.addEventListener("load", function() {
+        if (request.status >= 200 && request.status < 300) {
+          resolve(JSON.parse(request.responseText || null));
+        } else {
+          reject("request failed with: " + request.status);
+        }
+      });
+
+      request.addEventListener("error", function() {
+        // Timeout or DNS failure or something worse.
+        reject("the internets are busted!");
+      });
+
+      request.open(method, url);
+      request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      request.send(data && JSON.stringify(data));
+    });
   };
 
   // HTTP GET (Fetch resource).
   var get = function(url) {
+    return raw(url, "GET");
   };
 
   // HTTP POST (Create new resource).
   var post = function(url, data) {
+    return raw(url, "POST", data);
   };
 
   // HTTP PATCH (Update existing resource).
   var patch = function(url, data) {
+    return raw(url, "PATCH", data);
   };
 
   // HTTP DELETE (Delete existing resource).
   var destroy = function(url) {
+    return raw(url, "DELETE");
   };
 
   // Public interface here:

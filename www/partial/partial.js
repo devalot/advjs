@@ -1,5 +1,11 @@
 Function.prototype.partial = function() {
+  var origArgs = Array.from(arguments);
+  var origThis = origArgs.shift();
+  var origFunc = this;
 
-  // Your code here.
-
+  return function() {
+    var newArgs = Array.from(arguments);
+    var allArgs = origArgs.concat(newArgs);
+    return origFunc.apply(origThis, allArgs);
+  };
 };
