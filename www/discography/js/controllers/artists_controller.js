@@ -2,10 +2,24 @@ ArtistsController = (function(){
 
   // Display all artists.
   var index = function() {
+    Artist.fetchAll().
+      then(function(artists) {
+        View.set("artists-index", {artists: artists});
+
+        var ul = document.getElementById("artists-list");
+        ul.addEventListener("click", function(e) {
+          var id = e.target.getAttribute("data-artist-id");
+          if (id) show(id);
+        });
+      });
   };
 
   // Display a single artist.
   var show = function(id) {
+    Artist.fetchOne(id).
+      then(function(artist) {
+        View.set("artists-show", artist);
+      });
   };
 
   // Display a form for creating a new artist.
