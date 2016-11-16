@@ -6,5 +6,5 @@ main.addEventListener("click", function(event) {
   event.preventDefault();
 
   // ...
-}, false);
+});
 // :>>
