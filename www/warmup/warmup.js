@@ -29,5 +29,46 @@
    * text content of the clicked <li> element.
    */
 
+  var UserHistory = function(document, h1Selector, histSelector) {
+    var self = this;
+
+    this.document = document;
+    this.h1       = document.querySelector(h1Selector);
+    this.element  = document.querySelector(histSelector);
+
+    this.element.addEventListener("click", function(e) {
+      if (e.target.tagName !== "LI") return;
+      self.pop(e.target);
+    });
+  };
+
+  // Insert text into the history list.
+  UserHistory.prototype.insert = function(text) {
+    var previous = this.h1.textContent;
+    this.h1.textContent = text;
+
+    var li = this.document.createElement("li");
+    li.textContent = previous;
+    this.element.appendChild(li);
+  };
+
+  // Pop a history item off the history list.
+  UserHistory.prototype.pop = function(node) {
+    this.insert(node.textContent);
+    this.element.removeChild(node);
+  };
+
+  var form  = document.querySelector("form");
+  var input = document.getElementById("new-text");
+  var hist  = new UserHistory(document, "h1", "#history");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    if (input.value.match(/^\s*$/)) return;
+
+    hist.insert(input.value);
+    input.value = "";
+  });
 
 })();
