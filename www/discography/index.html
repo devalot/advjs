@@ -13,11 +13,37 @@
     <script id="artists-index" type="x-tmpl-mustache">
       <h2>Artists View (artists-index template)</h2>
 
-      <ul>
+      <ul id="artists-list">
         {{#artists}}
-        <li>{{name}} ({{formation_year}})</li>
+        <li>
+          <a href="#/artists/{{id}}" data-artist-id="{{id}}">{{name}}</a>
+          ({{formation_year}})
+        </li>
         {{/artists}}
       </ul>
+    </script>
+
+    <script id="artists-show" type="x-tmpl-mustache">
+      <h2>{{name}} (artists-show template)</h2>
+
+      <table>
+        <tbody>
+          <tr>
+            <td>Formation Year:</td>
+            <td>{{formation_year}}</td>
+          </tr>
+
+          <tr>
+            <td>Website:</td>
+            <td><a href="{{website}}">{{website}}</a></td>
+          </tr>
+
+          <tr>
+            <td>Database ID:</td>
+            <td>{{id}}</td>
+          </tr>
+        </tbody>
+      </table>
     </script>
 
     <!-- Bring in our JavaScript files -->
