@@ -26,26 +26,4 @@ describe("Artist model interface", function() {
       done.fail("shouldn't have failed");
     });
   });
-
-  it("fetchAll should provide all artists", function(done) {
-    var records = [
-      {name: "Peter Bjorn and John"},
-      {name: "David Bowie"},
-    ];
-
-    ajaxSpy('get', records);
-
-    Artist.fetchAll().
-      then(function(artists) {
-        expect(artists.length).toBe(records.length);
-        expect(artists[0].name).toBe(records[0].name);
-        expect(artists.every(function(artist) {
-          return artist instanceof Artist;
-        })).toBeTruthy();
-        done();
-      }).
-      catch(function() {
-        done.fail("promise rejected");
-      });
-  });
 });
