@@ -29,5 +29,31 @@
    * text content of the clicked <li> element.
    */
 
+  var TitleHistory = function(h1) {
+    this.header = h1;
+    this.list   = document.getElementById("history");
+  };
 
+  TitleHistory.prototype.insert = function(text) {
+    this.push(this.header.textContent);
+    this.header.textContent = text;
+  };
+
+  TitleHistory.prototype.push = function(text) {
+    var li = document.createElement("LI");
+    li.textContent = text;
+    this.list.appendChild(li);
+  };
+
+  var form    = document.querySelector("form");
+  var h1      = document.querySelector("h1");
+  var input   = document.getElementById("new-text");
+  var history = new TitleHistory(h1);
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    if (input.value.match(/^\s*$/)) return;
+    history.insert(input.value);
+    input.value = "";
+  });
 })();

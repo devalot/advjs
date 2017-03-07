@@ -51,4 +51,59 @@
  *
  * Make sure your tests still pass.
  */
-Hosts = undefined;
+Hosts = (function() {
+  // Abuse an object by treating it like a look-up table.
+  var table = {};
+
+  var api = {
+    add: function(name, address) {
+      if (!table.hasOwnProperty(name)) {
+        table[name] = [];
+      }
+      table[name].push(address);
+    },
+
+    lookupByName: function(name) {
+      if (table.hasOwnProperty(name)) {
+        return table[name];
+      } else {
+        return [];
+      }
+    },
+
+    lookupByIP: function(address) {
+      var names = [];
+
+      for (var name in table) {
+        var i = table[name].indexOf(address);
+        if (i >= 0) names.push(name);
+      }
+
+      return names;
+    },
+
+    clear: function() {
+      table = {};
+    }
+  };
+
+  // Bonus:
+  //
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+  Object.defineProperty(api, "length", {
+    // Allow `length' to be visible.
+    enumerable: true,
+
+    // Call this function when someone
+    // tries to get the value of `length'.
+    get: function() {
+      return Object.keys(table).length;
+    },
+
+    // Make it so `length' can't be
+    // deleted from the object.
+    configurable: false
+  });
+
+  return api;
+})();
