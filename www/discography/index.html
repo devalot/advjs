@@ -10,6 +10,31 @@
     <!-- This is where we're going to insert the view -->
     <div id="view"></div>
 
+    <!-- ArtistController.index -->
+    <!-- artists :: [Artists] -->
+    <script id="artists-index" type="x-tmpl-mustache">
+      <h2>Artist List</h2>
+      <ul id="artists-list">
+        {{#artists}}
+        <li>
+          <a href="#/artists/{{id}}" data-artist-id="{{id}}">{{name}}</a>
+          ({{formation_year}})
+        </li>
+        {{/artists}}
+      </ul>
+    </script>
+
+    <!-- ArtistController.show -->
+    <script id="artists-show" type="x-tmpl-mustache">
+      <h2>{{name}} ({{formation_year}})</h2>
+
+      <ul id="artist-details">
+        <li>Artist Name: {{name}}</li>
+        <li>Formation Year: {{formation_year}}</li>
+        <li>Website: <a href="{{website}}">{{website}}</a></li>
+      </ul>
+    </script>
+
     <!-- Bring in our JavaScript files -->
     <script src="js/vendor/mustache.min.js"></script>
     <script src="js/lib/promise.js"></script>
