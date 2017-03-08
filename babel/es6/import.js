@@ -1,3 +1,2 @@
-import Foo from './module.js';
-
-var foo = new Foo();
+import sayMagicNumber from './module.js';
+sayMagicNumber();
