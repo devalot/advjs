@@ -29,5 +29,32 @@
    * text content of the clicked <li> element.
    */
 
+  var UserHistory = function(document, historySelector, headerSelector) {
+    this.document = document;
+    this.element = document.querySelector(historySelector);
+    this.header  = document.querySelector(headerSelector);
+  };
 
+  UserHistory.prototype.set = function(text) {
+    this.append(this.header.textContent);
+    this.header.textContent = text;
+  };
+
+  // Add text to the history.
+  UserHistory.prototype.append = function(text) {
+    var li = this.document.createElement("li");
+    li.textContent = text;
+    this.element.appendChild(li);
+  };
+
+  var form = document.querySelector("form");
+  var input = document.getElementById("new-text");
+  var history = new UserHistory(document, "#history", "h1");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    if (input.value.match(/^\s*$/)) return;
+    history.set(input.value);
+    input.value = "";
+  });
 })();
