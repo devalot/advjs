@@ -26,4 +26,36 @@ describe("Artist model interface", function() {
       done.fail("shouldn't have failed");
     });
   });
+
+  it("fetchAll should provide an array of artists", function(done) {
+    var records = [
+      {name: "London Grammar"},
+      {name: "M83"},
+    ];
+
+    ajaxSpy('get', records);
+
+    Artist.fetchAll().then(function(artists) {
+      expect(artists.length).toBe(records.length);
+      expect(artists[0] instanceof Artist).toBeTruthy();
+      done();
+    }).catch(function(error) {
+      done.fail(error);
+    });
+  });
+
+  it("save should pick up an ID from the server", function(done) {
+    var record = {name: "Phantogram", id: 42};
+    var artist = new Artist({name: record.name});
+
+    expect(artist.id).toBeUndefined();
+    ajaxSpy('post', record);
+
+    artist.save().then(function() {
+      expect(artist.id).toBe(record.id);
+      done();
+    }).catch(function(error) {
+      done.fail(error);
+    });
+  });
 });

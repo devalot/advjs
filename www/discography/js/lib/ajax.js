@@ -32,6 +32,8 @@ Ajax = (function(){
       request.addEventListener("load", function() {
         if (request.status >= 200 && request.status < 300) {
           resolve(JSON.parse(request.responseText || null));
+        } else {
+          reject("bad HTTP status code: " + request.status);
         }
       });
 
