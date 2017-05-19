@@ -1,16 +1,16 @@
 // <<: without
-$.get("/a", function(data) {
-  $.get("/b/" + data.id, function(data_b) {
-    $.get("/c/" + data.id, function(data_c) {
+$.get("/a", function(data_a) {
+  $.get("/b/" + data_a.id, function(data_b) {
+    $.get("/c/" + data_b.id, function(data_c) {
       console.log("Got C: ", data_c);
     }, function() {
-      console.error("Call to C failed");
+      console.error("Call failed");
     });
   }, function() {
-    console.error("Call to B failed");
+    console.error("Call failed");
   });
 }, function() {
-  console.error("Call to A failed");
+  console.error("Call failed");
 });
 // :>>
 
