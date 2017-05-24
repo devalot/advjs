@@ -10,6 +10,30 @@
     <!-- This is where we're going to insert the view -->
     <div id="view"></div>
 
+    <!-- View for all artists. -->
+    <script id="artists-tmpl" type="x-tmpl-mustache">
+      <h2>Artist List</h2>
+
+      <ul id="artists">
+        {{#artists}}
+        <li>
+          <a href="#/artists/{{id}}" data-artist-id="{{id}}">{{name}}</a>
+          ({{formation_year}})
+        </li>
+        {{/artists}}
+      </ul>
+    </script>
+
+    <script id="show-tmpl" type="x-tmpl-mustache">
+      <h2>{{name}}</h2>
+
+      <ul>
+        <li>Name: {{name}}</li>
+        <li>Formation Year: {{formation_year}}</li>
+        <li>Website: {{website}}</li>
+      </ul>
+    </script>
+
     <!-- Bring in our JavaScript files -->
     <script src="js/vendor/mustache.min.js"></script>
     <script src="js/lib/promise.js"></script>
