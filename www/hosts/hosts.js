@@ -51,4 +51,37 @@
  *
  * Make sure your tests still pass.
  */
-Hosts = undefined;
+Hosts = (function() {
+  // If using >= ES6, use Map instead.
+  var table = Object.create(null);
+
+  var api = {
+    add: function(name, address) {
+      if (!Array.isArray(table[name])) table[name] = [];
+      table[name].push(address);
+    },
+
+    lookupByName: function(name) {
+      if (Array.isArray(table[name])) return table[name];
+      return [];
+    },
+
+    lookupByIP: function(address) {
+      var matches = [];
+
+      for (var name in table) {
+        if (table[name].indexOf(address) >= 0) {
+          matches.push(name);
+        }
+      }
+
+      return matches;
+    },
+
+    clear: function() {
+      table = Object.create(null);
+    }
+  };
+
+  return api;
+})();

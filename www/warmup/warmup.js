@@ -29,5 +29,34 @@
    * text content of the clicked <li> element.
    */
 
+  var ChangeLog = function(header, history) {
+    this.header = header;
+    this.history = history;
+  };
 
+  ChangeLog.prototype.update = function(text) {
+    this.push(this.header.textContent);
+    this.header.textContent = text;
+  };
+
+  ChangeLog.prototype.push = function(text) {
+    var li = document.createElement("li");
+    li.textContent = text;
+    this.history.insertBefore(li, this.history.firstChild);
+  };
+
+  var log = new ChangeLog(document.querySelector("h1"),
+                          document.getElementById("history"));
+
+  var form = document.querySelector("form");
+  var input = document.getElementById("new-text");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    if (input.value.match(/^\s*$/)) return;
+
+    log.update(input.value);
+    input.value = "";
+  });
 })();
