@@ -51,4 +51,40 @@
  *
  * Make sure your tests still pass.
  */
-Hosts = undefined;
+Hosts = (function() {
+  var table = Object.create(null);
+
+  var api = {
+    add: function(name, address) {
+      if (!table[name]) table[name] = [];
+      table[name].push(address);
+    },
+    lookupByName: function(name) {
+      if (table[name]) return table[name];
+      return [];
+    },
+    lookupByIP: function(address) {
+      var hosts = [];
+
+      for (var name in table) {
+        if (table[name].indexOf(address) >= 0) {
+          hosts.push(name);
+        }
+      }
+
+      return hosts;
+    },
+    clear: function() {
+      table = Object.create(null);
+    }
+  };
+
+  Object.defineProperty(api, "length", {
+    enumerable: true,
+    get: function() {
+      return Object.keys(table).length;
+    }
+  });
+
+  return api;
+})();

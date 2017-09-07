@@ -29,5 +29,32 @@
    * text content of the clicked <li> element.
    */
 
+  var NodeHistory = function(elementSel, listSel) {
+    this.element = document.querySelector(elementSel);
+    this.history = document.querySelector(listSel);
+  };
 
+  // Change the node's text.
+  NodeHistory.prototype.set = function(text) {
+    this.push(this.element.textContent);
+    this.element.textContent = text;
+  };
+
+  // Add an entry to the history.
+  NodeHistory.prototype.push = function(text) {
+    var item = document.createElement("LI");
+    item.textContent = text;
+    this.history.appendChild(item);
+  };
+
+  var form    = document.querySelector("form");
+  var input   = document.getElementById("new-text");
+  var history = new NodeHistory("h1", "#history");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    if (input.value.match(/^\s*$/)) return;
+    history.set(input.value);
+    input.value = "";
+  });
 })();
