@@ -4,7 +4,7 @@ var Car = (function() {
 
   // Private method.
   var setSpeed = function(x) {
-    if (x > 0 && x < 100) {speed = x;}
+    if (x >= 0 && x < 100) {speed = x;}
   };
 
   // Return the public interface.
