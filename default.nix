@@ -10,7 +10,6 @@ in stdenv.mkDerivation {
   buildInputs = with pkgs; [
     chromium # Best debugger around
     nodejs   # For the web server
-    yarn     # Installing dependencies
   ];
 
   shellHook = ''
