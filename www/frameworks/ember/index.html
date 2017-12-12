@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ember.js</title>
+  </head>
+
+  <body>
+    <h1>Ember.js</h1>
+
+    <script type="text/x-handlebars">
+      {{outlet}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="artists">
+      <ul>
+        {{#each model as |artist|}}
+        <li>{{artist.name}}</li>
+        {{/each}}
+      </ul>
+    </script>
+
+    <script src="../jquery/jquery.js"></script>
+    <script src="handlebars-v3.0.3.js"></script>
+    <script src="ember-template-compiler.js"></script>
+    <script src="ember.prod.js"></script>
+    <script src="example.js"></script>
+
+    <script>
+    </script>
+  </body>
+</html>

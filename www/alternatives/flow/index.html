@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Artists</title>
+  </head>
+
+  <body>
+    <h1>Artists</h1>
+
+    <!-- This is where we're going to insert the view -->
+    <div id="view"></div>
+
+    <!-- View template -->
+    <script id="artists" type="x-templ-mustache">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Website</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {{#artists}}
+          <tr>
+            <td>{{name}}</td>
+            <td>{{website}}</td>
+          </tr>
+          {{/artists}}
+        </tbody>
+      </table>
+    </script>
+
+    <!-- Bring in our JavaScript files -->
+    <script src="../../discography/js/vendor/mustache.min.js"></script>
+    <script src="dist/artist.js"></script>
+
+    <!-- Bootstrap the application -->
+    <script>
+      (function() {
+        Artist.fetchAll(render);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>2D Canvas API</title>
+  </head>
+
+  <body>
+    <h1>2D Canvas API</h1>
+
+    <!-- The Circle -->
+    <h3>Drawing a Circle</h3>
+    <canvas id="circle"></canvas>
+
+    <!-- Packman -->
+    <h3>Pacman</h3>
+    <canvas id="pacman" width="400" height="100"></canvas>
+
+    <!-- Load the JavaScript -->
+    <script src="circle.js"></script>
+    <script src="pacman.js"></script>
+
+    <!-- Fire it off -->
+    <script>
+      (function() {
+        Circle.go();
+        new Pacman();
+      })();
+    </script>
+  </body>
+</html>

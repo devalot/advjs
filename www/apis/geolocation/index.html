@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geolocation</title>
+  </head>
+
+  <body>
+    <h1>Geolocation</h1>
+
+    <div id="loc"></div>
+    <script src="geolocation.js"></script>
+
+    <script>
+      (function(){
+        var div = document.getElementById("loc");
+        Geolocation.get(div);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The File API</title>
+  </head>
+
+  <body>
+    <h1>The File API</h1>
+
+    <div id="view"></div>
+
+    <form>
+      <input type="file" id="file"/>
+    </form>
+
+    <script src="files.js"></script>
+
+    <script>
+      (function(){
+        FileTest.go("view", "file");
+      })();
+    </script>
+  </body>
+</html>

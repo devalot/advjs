@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery</title>
+  </head>
+
+  <body>
+    <h1>jQuery Demo</h1>
+    <div id="view"></div>
+
+    <script id="template" type="x-tmpl-mustache">
+      <ul>
+        {{#artists}}
+        <li>{{name}} ({{formation_year}})</li>
+        {{/artists}}
+      </ul>
+    </script>
+
+    <script src="../../discography/js/vendor/mustache.min.js"></script>
+    <script src="jquery.js"></script>
+    <script src="example.js"></script>
+  </body>
+</html>

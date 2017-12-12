@@ -1,0 +1,259 @@
+- name: "The Knife"
+  id: 481
+  asin: B000EU1N0C
+  label: Mute Corporation
+  released: "2001-02-05"
+  price: 6.99
+  artist_id: 1
+- name: "Hannah med H"
+  id: 22
+  asin: B000EU1N02
+  label: Rabid Records
+  released: "2003-11-26"
+  price: 6.99
+  artist_id: 1
+- name: "Deep Cuts"
+  id: 478
+  asin: B000I0QL0K
+  label: Mute Corporation
+  released: "2003-01-17"
+  price: 6.99
+  artist_id: 1
+- name: "Silent Shout"
+  id: 480
+  asin: B000FWHVKA
+  label: Mute Corporation
+  released: "2006-02-15"
+  price: 6.99
+  artist_id: 1
+- name: "We Share Our Mothers' Health"
+  id: 482
+  asin: B000GJ28IC
+  label: Mute Corporation
+  released: "2006-05-15"
+  price: 6.99
+  artist_id: 1
+- name: "Shaking the Habitual"
+  id: 479
+  asin: B00B6ELPIU
+  label: Mute Corporation
+  released: "2013-04-05"
+  price: 6.99
+  artist_id: 1
+- name: "Speak & Spell"
+  id: 257
+  asin: B000006Y60
+  label: Intercord
+  released: "1981-10-05"
+  price: 6.99
+  artist_id: 2
+- name: "A Broken Frame"
+  id: 247
+  asin: 
+  label: Rhino
+  released: "1982-09-27"
+  price: 6.99
+  artist_id: 2
+- name: "Construction Time Again"
+  id: 249
+  asin: B005HI7MRE
+  label: Sire Records
+  released: "1983-08-22"
+  price: 6.99
+  artist_id: 2
+- name: "Some Great Reward"
+  id: 254
+  asin: 
+  label: Mute
+  released: "1984-09-24"
+  price: 6.99
+  artist_id: 2
+- name: "Black Celebration"
+  id: 248
+  asin: B000002L9M
+  label: Sire Records
+  released: "1986-03-17"
+  price: 6.99
+  artist_id: 2
+- name: "Music for the Masses"
+  id: 252
+  asin: B000002LCI
+  label: Sire Records
+  released: "1987-09-28"
+  price: 6.99
+  artist_id: 2
+- name: "101"
+  id: 246
+  asin: B000002LGW
+  label: Sire Records
+  released: "1989-03-13"
+  price: 6.99
+  artist_id: 2
+- name: "Violator"
+  id: 259
+  asin: B001230JXC
+  label: Rhino
+  released: "1990-02-21"
+  price: 6.99
+  artist_id: 2
+- name: "Songs of Faith and Devotion"
+  id: 255
+  asin: B000LY7XXW
+  label: Disques Vogue
+  released: "1993-03-22"
+  price: 6.99
+  artist_id: 2
+- name: "Ultra"
+  id: 258
+  asin: 
+  label: Sire Records
+  released: "1997-04-14"
+  price: 6.99
+  artist_id: 2
+- name: "Exciter"
+  id: 251
+  asin: B001237AQ6
+  label: Rhino
+  released: "2001-05-10"
+  price: 6.99
+  artist_id: 2
+- name: "Playing the Angel"
+  id: 253
+  asin: B000B2YQX4
+  label: Sire Records
+  released: "2005-10-13"
+  price: 6.99
+  artist_id: 2
+- name: "Sounds of the Universe"
+  id: 256
+  asin: B001IBIQU6
+  label: Capitol Records
+  released: "2009-04-17"
+  price: 6.99
+  artist_id: 2
+- name: "Delta Machine"
+  id: 250
+  asin: B00B69UQJY
+  label: Columbia
+  released: "2013-03-22"
+  price: 6.99
+  artist_id: 2
+- name: "Becoming X"
+  id: 801
+  asin: B000000WCT
+  label: Virgin Records America
+  released: "1996-08-07"
+  price: 6.99
+  artist_id: 3
+- name: "Spin Spin Sugar"
+  id: 812
+  asin: B0000073XL
+  label: Clean Up Records
+  released: "1997-02-26"
+  price: 6.99
+  artist_id: 3
+- name: "Becoming RemiXed"
+  id: 800
+  asin: B00000603K
+  label: Virgin Records America
+  released: "1998-03-10"
+  price: 6.99
+  artist_id: 3
+- name: "Splinter"
+  id: 813
+  asin: B00002759W
+  label: Clean Up Records
+  released: "1999-10-25"
+  price: 6.99
+  artist_id: 3
+- name: "Bloodsport"
+  id: 802
+  asin: B00005UWL9
+  label: Tommy Boy Music
+  released: "2002-01-22"
+  price: 6.99
+  artist_id: 3
+- name: "Loretta Young Silks"
+  id: 807
+  asin: B000078DPR
+  label: Splinter Industries
+  released: "2002-11-25"
+  price: 6.99
+  artist_id: 3
+- name: "Sick"
+  id: 809
+  asin: B000063TTM
+  label: Splinter Industries
+  released: "2002-03-25"
+  price: 6.99
+  artist_id: 3
+- name: "SP4"
+  id: 810
+  asin: 
+  label: 
+  released: "2003-00-00"
+  price: 6.99
+  artist_id: 3
+- name: "ICA Home Taping"
+  id: 804
+  asin: 
+  label: 
+  released: "2004-12-25"
+  price: 6.99
+  artist_id: 3
+- name: "A Guide to Love, Loss & Desperation"
+  id: 947
+  asin: B000TZGQKE
+  label: 14th Floor Records
+  released: "2007-11-05"
+  price: 6.99
+  artist_id: 4
+- name: "This Modern Glitch"
+  id: 948
+  asin: B003XT7CJM
+  label: 14th Floor Records
+  released: "2011-04-22"
+  price: 6.99
+  artist_id: 4
+- name: "Glitterbug"
+  id: 978
+  asin: B00R44Q450
+  label: 14th Floor Records
+  released: "2015-04-03"
+  price: 6.99
+  artist_id: 4
+- name: "If You Wait"
+  id: 511
+  asin: 
+  label: Columbia
+  released: "2013-09-09"
+  price: 6.99
+  artist_id: 5
+- name: "If You Wait (Remixes)"
+  id: 981
+  asin: 
+  label: Metal & Dust Recordings Ltd.
+  released: "2014-05-06"
+  price: 6.99
+  artist_id: 5
+- name: "If You Wait (Remixes 2)"
+  id: 982
+  asin: 
+  label: Metal & Dust Recordings Ltd.
+  released: "2014-08-25"
+  price: 6.99
+  artist_id: 5
+- name: "Wet From Birth"
+  id: 359
+  asin: B0002T7Z2U
+  label: Saddle Creek Records
+  released: "2004-09-04"
+  price: 6.99
+  artist_id: 6
+- name: "Fasciinatiion"
+  id: 358
+  asin: B001ASII8C
+  label: blank.wav
+  released: "2008-08-05"
+  price: 6.99
+  artist_id: 6

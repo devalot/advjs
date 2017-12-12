@@ -1,0 +1,25 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+</div>
+<h2>Artists</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Formation Year</th>
+      <th>Website</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let artist of artists">
+      <td>{{artist.id}}</td>
+      <td>{{artist.name}}</td>
+      <td>{{artist.formation_year}}</td>
+      <td>{{artist.website}}</td>
+    </tr>
+  </tbody>
+</table>

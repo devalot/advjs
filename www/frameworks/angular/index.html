@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="example">
+  <head>
+    <title>AngularJS</title>
+  </head>
+
+  <body>
+    <h1>AngularJS</h1>
+
+    <div ng-controller="ExampleController as ex">
+      <input type="text" ng-model="ex.search" placeholder="Search"/>
+
+      <ul>
+        <li ng-repeat="artist in ex.artists | filter:ex.search">
+          {{artist.name}} ({{artist.formation_year}})
+        </li>
+      </ul>
+    </div>
+
+    <script src="angular.min.js"></script>
+    <script src="example.js"></script>
+  </body>
+</html>

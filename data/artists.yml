@@ -1,0 +1,24 @@
+- id: 1
+  name: "The Knife"
+  formation_year: 1999
+  website: http://theknife.net/
+- id: 2
+  name: "Depeche Mode"
+  formation_year: 1980
+  website: http://www.depechemode.com/
+- id: 3
+  name: "Sneaker Pimps"
+  formation_year: 1994
+  website: https://en.wikipedia.org/wiki/Sneaker_Pimps
+- id: 4
+  name: "The Wombats"
+  formation_year: 2003
+  website: http://www.thewombats.co.uk/
+- id: 5
+  name: "London Grammar"
+  formation_year: 2012
+  website: http://www.londongrammar.com/
+- id: 6
+  name: "The Faint"
+  formation_year: 1995
+  website: http://www.thefaint.com/
