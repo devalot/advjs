@@ -1,7 +1,7 @@
-# Advanced JavaScript Exercises and Demos
+# Intermediate/Advanced JavaScript Exercises and Demos
 
-This is the source code for the Advanced JavaScript course taught by
-[Peter J. Jones][pjones].
+This is the source code for the Intermediate JavaScript course taught
+by [Peter J. Jones][pjones].
 
 ## Prerequisites
 
