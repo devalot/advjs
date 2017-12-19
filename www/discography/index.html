@@ -10,6 +10,29 @@
     <!-- This is where we're going to insert the view -->
     <div id="view"></div>
 
+    <script id="artists-index" type="x-tmpl-mustache">
+      <h2>All Our Artists</h2>
+
+      <ul>
+        {{#artists}}
+        <li>
+          <a href="#{{id}}">{{name}}</a> ({{formation_year}})
+        </li>
+        {{/artists}}
+      </ul>
+    </script>
+
+    <script id="artists-show" type="x-tmpl-mustache">
+      <h2>{{name}}</h2>
+
+      <ul>
+        <li>Formation Year: {{formation_year}}</li>
+        <li>Website: {{website}}
+      </ul>
+
+      <p>Go <a href="#">back home</a>.</p>
+    </script>
+
     <!-- Bring in our JavaScript files -->
     <script src="js/vendor/mustache.min.js"></script>
     <script src="js/lib/promise.js"></script>
@@ -25,7 +48,7 @@
     <!-- Bootstrap the application -->
     <script>
       (function() {
-        ArtistsController.index();
+        ArtistsController.boot();
       })();
     </script>
   </body>
