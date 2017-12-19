@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 /*
  * Hosts Exercise:
  *
@@ -51,4 +53,34 @@
  *
  * Make sure your tests still pass.
  */
-Hosts = undefined;
+Hosts = (function() {
+  // Bad use of an object.
+  let table = Object.create(null);
+  let api = {};
+
+  api.add = function(name, address) {
+    if (!Array.isArray(table[name])) table[name] = [];
+    table[name].push(address);
+  };
+
+  api.lookupByName = function(name) {
+    if (Array.isArray(table[name])) return table[name];
+    return [];
+  };
+
+  api.lookupByIP = function(address) {
+    let matches = [];
+
+    for (let name in table) {
+      if (table[name].indexOf(address) >= 0) matches.push(name);
+    }
+
+    return matches;
+  };
+
+  api.clear = function() {
+    table = Object.create(null);
+  };
+
+  return api;
+})();

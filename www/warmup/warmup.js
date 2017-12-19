@@ -1,5 +1,4 @@
 (function(){
-
   /*
    * Use Case:
    *
@@ -29,5 +28,33 @@
    * text content of the clicked <li> element.
    */
 
+  let Header = function(header, history) {
+    this.header = header;
+    this.history = history;
+  };
 
+  Header.prototype.push = function(text) {
+    let li = document.createElement("LI");
+    li.textContent = text;
+    this.history.appendChild(li);
+  };
+
+  Header.prototype.update = function(newText) {
+    if (newText.match(/^\s*$/)) return;
+    this.push(this.header.textContent);
+    this.header.textContent = newText;
+  };
+
+  let h1 = document.querySelector("h1");
+  let form = document.querySelector("form");
+  let input = document.getElementById("new-text");
+  let history = document.getElementById("history");
+
+  let header = new Header(h1, history);
+
+  form.addEventListener("submit", function(e) {
+    header.update(input.value);
+    input.value = "";
+    e.preventDefault();
+  });
 })();
